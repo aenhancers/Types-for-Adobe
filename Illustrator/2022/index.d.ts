@@ -8727,6 +8727,16 @@ declare class Document {
   exportFile(exportFile: File, exportFormat: ExportType, options?: any): void
 
   /**
+   * Export the specified document(s)
+   * @param exportFile The file to export the document to.
+   * @param exportFormat The file type to export the document as.
+   * @param options Options for the file type specified.
+   * @param itemToExport What to export.
+   * @param fileNamePrefix String prepended to each file name.
+   */
+  exportForScreens(exportFolder: File, exportFormat: ExportForScreensScaleType, options: any, itemToExport: ExportForScreensItemToExport, fileNamePrefix: string): void
+
+  /**
    * Save all PDF presets to a file.
    * @param file File to export to.
    */
@@ -12026,3 +12036,226 @@ declare class Artboard {
  *
  */
 type Rect = [number, number, number, number]
+
+declare class ExportForScreensItemToExport {
+  /**
+   * Range of artboards to export [possible values: '', 'all'(default), range]
+   */
+  static artboards: string
+
+  /**
+   * 	Array of asset id to export (default:empty)
+   */
+  static assets: number[]
+
+  /**
+   * Whether to export the document or not.
+   */
+  static document: boolean
+}
+
+declare enum ExportForScreensType {
+  /**
+   * JPEG export file format 100% quality.
+   */
+  SE_JPEG100 = 1,
+
+  /**
+   * JPEG export file format 20% quality.
+   */
+  SE_JPEG20 = 4,
+
+  /**
+   * JPEG export file format 50% quality.
+   */
+  SE_JPEG50 = 3,
+
+  /**
+   * JPEG export file format 80% quality.
+   */
+  SE_JPEG80 = 2,
+
+  /**
+   * 	Export file in Acrobat PDF format
+   */
+  SE_PDF = 8,
+
+  /**
+   * PNG 24-bit export file format.
+   */
+  SE_PNG24 = 7,
+
+  /**
+   * PNG 8-bit export file format.
+   */
+  SE_PNG8 = 6,
+
+  /**
+   * SVG export file format.
+   */
+  SE_SVG = 5,
+}
+
+declare enum ExportForScreensScaleType {
+  /**
+   * Scale artwork by factors like 1x, 2x, 3x and so on, where 1x means 72 ppi.
+   */
+  SCALEBYFACTOR = 0,
+
+  /**
+   * Scale artwork by specifying artwork height in pixels like 100px, 124px etc. Width of the artwork is adjusted automatically to maintain the aspect ratio.
+   */
+  SCALEBYHEIGHT = 2,
+
+  /**
+   * Scale artwork by specifying resolution in ppi like 72 ppi, 100 ppi, 144 ppi etc.
+   */
+  SCALEBYRESOLUTION = 3,
+
+  /**
+   * Scale artwork by specifying artwork width in pixels like 100px, 124px etc. Height of the artwork is adjusted automatically to maintain the aspect ratio.
+   */
+  SCALEBYWIDTH = 1,
+}
+
+declare class ExportForScreensOptionsPNG24 {
+   /**
+   * Should the resulting image be antialiased.
+   */
+  static antiAliasing: AntiAliasingMethod
+   /**
+   * Should the resulting image rasterize against a black background (with value true) or white background(with value false) if it doesn't use transparency.
+   */
+  static backgroundBlack: boolean
+   /**
+   * Should the resulting image be interlaced.
+   */
+  static interlaced: boolean
+   /**
+   * How should the resulting image be scaled.
+   */
+  static scaleType: ExportForScreensScaleType
+   /**
+   * The value by which the resulting image should be scaled.
+   */
+  static scaleTypeValue: number
+   /**
+   * Should the resulting image use transparency.
+   */
+  static transparency: boolean
+}
+
+declare class ExportForScreensOptionsJPEG {
+  /**
+  * Should the resulting image be antialiased.
+  */
+ static antiAliasing: AntiAliasingMethod
+  /**
+  * Should the resulting image rasterize against a black background (with value true) or white background(with value false) if it doesn't use transparency.
+  */
+ static compressionMethod: JPEGCompressionMethodType
+  /**
+  * Embed an ICC profile when exporting.
+  */
+ static embedICCProfile: boolean
+  /**
+  * (range 3 - 5) Specify the number of detailed scans when downloading a JPEG file using the Progressive option as the CompressionMethod.
+  */
+ static progressiveScan: number
+  /**
+  * How should the resulting image be scaled.
+  */
+ static scaleType: ExportForScreensScaleType
+  /**
+  * The value by which the resulting image should be scaled.
+  */
+ static scaleTypeValue: number
+}
+
+declare enum JPEGCompressionMethodType {
+  /**
+  * Select Baseline Optimized for optimized color and a slightly smaller file size. Not supported by all web browsers.
+  */
+  BASELINEOPTIMIZED = 1,
+  /**
+  * Select Baseline (Standard) to use a format recognized by most web browsers.
+  */
+  BASELINESTANDARD = 0,
+  /**
+  * Select Progressive to display a series of increasingly detailed scans (you specify how many in ProgressiveScan) as the image downloads. Not supported by all web browsers.
+  */
+  PROGRESSIVE = 2
+}
+
+declare class ExportForScreensOptionsPNG8 {
+  /**
+  * Should the resulting image be antialiased.
+  */
+ static antiAliasing: AntiAliasingMethod
+  /**
+  * Number of colors in exported color table. (rage 2 - 256)
+  */
+ static colorCount: number
+  /**
+  * Should the resulting image be interlaced.
+  */
+ static interlaced: boolean
+  /**
+  * Should the artboard be matted with a color.
+  */
+ static matte: boolean
+  /**
+  * The color to use when matting the artboard (default: white)
+  */
+ static matteColor: RGBColor
+  /**
+  * How should the resulting image be scaled.
+  */
+ static scaleType: ExportForScreensScaleType
+  /**
+  * The value by which the resulting image should be scaled.
+  */
+ static scaleTypeValue: number
+  /**
+  * Should the resulting image use transparency.
+  */
+ static transparency: boolean
+}
+
+declare class ExportForScreensOptionsWebOptimizedSVG {
+  /**
+  * Decimal precision for element coordinate values. (range 1 - 7)
+  */
+ static coordinatePrecision: number
+  /**
+  * How should the CSS properties of the document be included in the document.
+  */
+ static cssProperties: SVGCSSPropertyLocation
+  /**
+  * The type of font that should be included in the exported file.
+  */
+ static fontType: SVGFontType
+  /**
+  * Should the raster images in the exported file be included.
+  */
+ static rasterImageLocation: RasterImageLocation
+  /**
+  * How object names (IDs) are generated in exported SVG.
+  */
+ static svgId: SVGIdType
+  /**
+  * Reduces the size of the svg.
+  */
+ static svgMinify: boolean
+  /**
+  * Makes the SVG Responsive.
+  */
+ static svgResponsive: boolean
+}
+
+declare class ExportForScreensPDFOptions {
+  /**
+  * The max string length is 255 bytes. Name of PDF preset to use.
+  */
+ static pdfPreset: string
+}
