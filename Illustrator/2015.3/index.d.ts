@@ -3980,7 +3980,13 @@ declare class PathItems extends Array<PathItem> {
    * @param height The height of the rectangle.
    * @param reversed Is the rectangle path reversed?
    */
-  rectangle(top: number, left: number, width: number, height: number, reversed?: boolean): PathItem
+  rectangle(
+    top: number,
+    left: number,
+    width: number,
+    height: number,
+    reversed?: boolean,
+  ): PathItem
 
   /**
    * Deletes all elements.
@@ -4127,7 +4133,7 @@ declare class Stories extends Array<Story> {
 /**
  * A collection of text frame items.
  */
-declare class TextFrameItems extends Array<TextFrame> {
+declare class TextFrameItems extends Array<TextFrameItem> {
   /**
    * Number of elements in the collection.
    */
@@ -4146,7 +4152,7 @@ declare class TextFrameItems extends Array<TextFrame> {
   /**
    * Create a point text frame item.
    */
-  add(): TextFrame
+  add(): TextFrameItem
 
   /**
    * Create an area text frame item.
@@ -4158,15 +4164,15 @@ declare class TextFrameItems extends Array<TextFrame> {
   static areaText(
     textPath: PathItem,
     orientation?: TextOrientation,
-    baseFrame?: TextFrame,
+    baseFrame?: TextFrameItem,
     postFix?: boolean,
-  ): TextFrame
+  ): TextFrameItem
 
   /**
    * Get the first element in the collection with the provided name.
    * @param name
    */
-  getByName(name: string): TextFrame
+  getByName(name: string): TextFrameItem
 
   /**
    * Create an on-path text frame item.
@@ -4182,16 +4188,16 @@ declare class TextFrameItems extends Array<TextFrame> {
     startTValue?: number,
     endTValue?: number,
     orientation?: TextOrientation,
-    baseFrame?: TextFrame,
+    baseFrame?: TextFrameItem,
     postFix?: boolean,
-  ): TextFrame
+  ): TextFrameItem
 
   /**
    * Create a point text frame item.
    * @param anchor The position (coordinates) of the anchor point.
    * @param orientation The orientation of the text.
    */
-  static pointText(anchor: Point | [number, number], orientation?: TextOrientation): TextFrame
+  static pointText(anchor: Point | [number, number], orientation?: TextOrientation): TextFrameItem
 
   /**
    * Deletes all elements.
@@ -5829,52 +5835,52 @@ declare class ExportOptionsJPEG {
   /**
    * Should the resulting image be antialiased.
    */
-  static antiAliasing: boolean
+  public antiAliasing: boolean
 
   /**
    * Should the resulting image be clipped to the artboard.
    */
-  static artBoardClipping: boolean
+  public artBoardClipping: boolean
 
   /**
    * Blur the resulting image this much.
    */
-  static blurAmount: number
+  public blurAmount: number
 
   /**
    * Horizontal scaling factor.
    */
-  static horizontalScale: number
+  public horizontalScale: number
 
   /**
    * Should the artboard be matted with a color.
    */
-  static matte: boolean
+  public matte: boolean
 
   /**
    * The color to use when matting the artboard (default: white)
    */
-  static matteColor: RGBColor
+  public matteColor: RGBColor
 
   /**
    * Should the image be optimized for web viewing.
    */
-  static optimization: boolean
+  public optimization: boolean
 
   /**
    * Quality of resulting image.
    */
-  static qualitySetting: number
+  public qualitySetting: number
 
   /**
    * Should the resulting image be saved as HTML.
    */
-  static saveAsHTML: boolean
+  public saveAsHTML: boolean
 
   /**
    * Vertical scaling factor.
    */
-  static verticalScale: number
+  public verticalScale: number
 }
 
 /**
@@ -5884,72 +5890,72 @@ declare class ExportOptionsPNG8 {
   /**
    * Should the resulting image be antialiased.
    */
-  static antiAliasing: boolean
+  public antiAliasing: boolean
 
   /**
    * Should the resulting image be clipped to the artboard.
    */
-  static artBoardClipping: boolean
+  public artBoardClipping: boolean
 
   /**
    * Number of colors in exported color table.
    */
-  static colorCount: number
+  public colorCount: number
 
   /**
    * Method used to dither colors.
    */
-  static colorDither: ColorDitherMethod
+  public colorDither: ColorDitherMethod
 
   /**
    * Method used to reduce the number of colors.
    */
-  static colorReduction: ColorReductionMethod
+  public colorReduction: ColorReductionMethod
 
   /**
    * How much should the colors be dithered.
    */
-  static ditherPercent: number
+  public ditherPercent: number
 
   /**
    * Horizontal scaling factor.
    */
-  static horizontalScale: number
+  public horizontalScale: number
 
   /**
    * Should the resulting image be interlaced.
    */
-  static interlaced: boolean
+  public interlaced: boolean
 
   /**
    * Should the artboard be matted with a color.
    */
-  static matte: boolean
+  public matte: boolean
 
   /**
    * The color to use when matting the artboard (default: white)
    */
-  static matteColor: RGBColor
+  public matteColor: RGBColor
 
   /**
    * Should the resulting image be saved as HTML.
    */
-  static saveAsHTML: boolean
+  public saveAsHTML: boolean
 
   /**
    * Should the resulting image use transparency.
    */
-  static transparency: boolean
+  public transparency: boolean
 
   /**
    * Vertical scaling factor.
    */
-  static verticalScale: number
+  public verticalScale: number
 
   /**
    * How much should the color table be changed to match the web palette.
    */
-  static webSnap: number
+  public webSnap: number
 }
 
 /**
@@ -6009,77 +6015,77 @@ declare class ExportOptionsGIF {
   /**
    * Should the resulting image be antialiased.
    */
-  static antiAliasing: boolean
+  public antiAliasing: boolean
 
   /**
    * Should the resulting image be clipped to the artboard.
    */
-  static artBoardClipping: boolean
+  public artBoardClipping: boolean
 
   /**
    * Number of colors in exported color table.
    */
-  static colorCount: number
+  public colorCount: number
 
   /**
    * Method used to dither colors.
    */
-  static colorDither: ColorDitherMethod
+  public colorDither: ColorDitherMethod
 
   /**
    * Method used to reduce the number of colors.
    */
-  static colorReduction: ColorReductionMethod
+  public colorReduction: ColorReductionMethod
 
   /**
    * How much should the colors be dithered.
    */
-  static ditherPercent: number
+  public ditherPercent: number
 
   /**
    * Horizontal scaling factor.
    */
-  static horizontalScale: number
+  public horizontalScale: number
 
   /**
    * Level of information loss during compression.
    */
-  static infoLossPercent: number
+  public infoLossPercent: number
 
   /**
    * Should the resulting image be interlaced.
    */
-  static interlaced: boolean
+  public interlaced: boolean
 
   /**
    * Should the artboard be matted with a color.
    */
-  static matte: boolean
+  public matte: boolean
 
   /**
    * The color to use when matting the artboard (default: white)
    */
-  static matteColor: RGBColor
+  public matteColor: RGBColor
 
   /**
    * Should the resulting image be saved as HTML.
    */
-  static saveAsHTML: boolean
+  public saveAsHTML: boolean
 
   /**
    * Should the resulting image use transparency.
    */
-  static transparency: boolean
+  public transparency: boolean
 
   /**
    * Vertical scaling factor.
    */
-  static verticalScale: number
+  public verticalScale: number
 
   /**
    * How much should the color table be changed to match the web pallet.
    */
-  static webSnap: number
+  public webSnap: number
 }
 
 /**
@@ -6089,52 +6095,52 @@ declare class ExportOptionsPhotoshop {
   /**
    * Should the resulting image be antialiased.
    */
-  static antiAliasing: boolean
+  public antiAliasing: boolean
 
   /**
    * If SaveMultipleArtboards is true,this will be considered for multi-asset extraction which specifies artboard range.Empty string will extracts all the artboards.Default is empty string.
    */
-  static artboardRange: string
+  public artboardRange: string
 
   /**
    * Export text objects as editable text layers.
    */
-  static editableText: boolean
+  public editableText: boolean
 
   /**
    * Embed an ICC profile when exporting.
    */
-  static embedICCProfile: boolean
+  public embedICCProfile: boolean
 
   /**
    * The color space of the exported file.
    */
-  static imageColorSpace: ImageColorSpace
+  public imageColorSpace: ImageColorSpace
 
   /**
    * Preserve as much of the original document's structure as possible when exporting.
    */
-  static maximumEditability: boolean
+  public maximumEditability: boolean
 
   /**
    * The resolution of the exported file.
    */
-  static resolution: number
+  public resolution: number
 
   /**
    * All the artboards or range of the artboards will be exported.
    */
-  static saveMultipleArtboards: boolean
+  public saveMultipleArtboards: boolean
 
   /**
    * Should a warning dialog be displayed because of conflicts in the export settings.
    */
-  static warnings: boolean
+  public warnings: boolean
 
   /**
    * Preserve document layers when exporting.
    */
-  static writeLayers: boolean
+  public writeLayers: boolean
 }
 
 /**
@@ -6144,92 +6150,92 @@ declare class ExportOptionsSVG {
   /**
    * The version of DTD that the exported file should be conforming to.
    */
-  static DTD: SVGDTDVersion
+  public DTD: SVGDTDVersion
 
   /**
    * If SaveMultipleArtboards is true,this will be considered for multi-asset extraction which specifies artboard range.Empty string will extracts all the artboards.Default is empty string.
    */
-  static artboardRange: string
+  public artboardRange: string
 
   /**
    * Should the exported file be compressed.
    */
-  static compressed: boolean
+  public compressed: boolean
 
   /**
    * Decimal precision for element coordinate values.
    */
-  static coordinatePrecision: number
+  public coordinatePrecision: number
 
   /**
    * How should the CSS properties of the document be included in the document.
    */
-  static cssProperties: SVGCSSPropertyLocation
+  public cssProperties: SVGCSSPropertyLocation
 
   /**
    * How should the text in the document be encoded.
    */
-  static documentEncoding: SVGDocumentEncoding
+  public documentEncoding: SVGDocumentEncoding
 
   /**
    * Should the raster images in the exported file be included.
    */
-  static embedRasterImages: boolean
+  public embedRasterImages: boolean
 
   /**
    * What font glyphs should be included in the exported file.
    */
-  static fontSubsetting: SVGFontSubsetting
+  public fontSubsetting: SVGFontSubsetting
 
   /**
    * The type of font that should be included in the exported file.
    */
-  static fontType: SVGFontType
+  public fontType: SVGFontType
 
   /**
    *
    */
-  static includeFileInfo: boolean
+  public includeFileInfo: boolean
 
   /**
    *
    */
-  static includeUnusedStyles: boolean
+  public includeUnusedStyles: boolean
 
   /**
    *
    */
-  static includeVariablesAndDatasets: boolean
+  public includeVariablesAndDatasets: boolean
 
   /**
    *
    */
-  static optimizeForSVGViewer: boolean
+  public optimizeForSVGViewer: boolean
 
   /**
    * Preserve Illustrator editing capabilities when exporting the document.
    */
-  static preserveEditability: boolean
+  public preserveEditability: boolean
 
   /**
    * Is SVG auto kerning allowed?
    */
-  static sVGAutoKerning: boolean
+  public sVGAutoKerning: boolean
 
   /**
    * Is SVG text-on-path construct allowed?
    */
-  static sVGTextOnPath: boolean
+  public sVGTextOnPath: boolean
 
   /**
    * All the artboards or range of the artboards will be saved.
    */
-  static saveMultipleArtboards: boolean
+  public saveMultipleArtboards: boolean
 
   /**
    * Preserve slice data in exported document.
    */
-  static slices: boolean
+  public slices: boolean
 }
 
 /**
@@ -6239,47 +6245,47 @@ declare class ExportOptionsWebOptimizedSVG {
   /**
    * If SaveMultipleArtboards is true,this will be considered for multi-asset extraction which specifies artboard range.Empty string will extracts all the artboards.Default is empty string.
    */
-  static artboardRange: string
+  public artboardRange: string
 
   /**
    * Decimal precision for element coordinate values.
    */
-  static coordinatePrecision: number
+  public coordinatePrecision: number
 
   /**
    * How should the CSS properties of the document be included in the document.
    */
-  static cssProperties: SVGCSSPropertyLocation
+  public cssProperties: SVGCSSPropertyLocation
 
   /**
    * The type of font that should be included in the exported file.
    */
-  static fontType: SVGFontType
+  public fontType: SVGFontType
 
   /**
    * Should the raster images in the exported file be included.
    */
-  static rasterImageLocation: RasterImageLocation
+  public rasterImageLocation: RasterImageLocation
 
   /**
    * All the artboards or range of the artboards will be saved.
    */
-  static saveMultipleArtboards: boolean
+  public saveMultipleArtboards: boolean
 
   /**
    * How object names (IDs) are generated in exported SVG.
    */
-  static svgId: SVGIdType
+  public svgId: SVGIdType
 
   /**
    * Reduces the size of the svg.
    */
-  static svgMinify: boolean
+  public svgMinify: boolean
 
   /**
    * Makes the SVG Responsive.
    */
-  static svgResponsive: boolean
+  public svgResponsive: boolean
 }
 
 /**
@@ -6289,127 +6295,127 @@ declare class ExportOptionsFlash {
   /**
    * How should the arts be clipped during the output.
    */
-  static artClipping: ArtClippingOption
+  public artClipping: ArtClippingOption
 
   /**
    * If SaveMultipleArtboards is true,this will be considered for multi-asset extraction which specifies artboard range.Empty string will extracts all the artboards.Default is empty string.
    */
-  static artboardRange: string
+  public artboardRange: string
 
   /**
    * The background color.
    */
-  static backgroundColor: RGBColor
+  public backgroundColor: RGBColor
 
   /**
    * A list of layers to be included as the static background in all exported Flash frames.
    */
-  static backgroundLayers: Layer[]
+  public backgroundLayers: Layer[]
 
   /**
    * Controls how the blend art objects are animated when export to Flash frames.
    */
-  static blendAnimation: BlendAnimationType
+  public blendAnimation: BlendAnimationType
 
   /**
    * Should the exported file be compressed.
    */
-  static compressed: boolean
+  public compressed: boolean
 
   /**
    * Should all text be converted to outlines.
    */
-  static convertTextToOutlines: boolean
+  public convertTextToOutlines: boolean
 
   /**
    * How much curve information should be preserved.
    */
-  static curveQuality: number
+  public curveQuality: number
 
   /**
    * Should all symbol definitions in the palette be exported to the SWF File.
    */
-  static exportAllSymbols: boolean
+  public exportAllSymbols: boolean
 
   /**
    * How should the Flash file be created.
    */
-  static exportStyle: FlashExportStyle
+  public exportStyle: FlashExportStyle
 
   /**
    * Which version of SWF to export.
    */
-  static exportVersion: FlashExportVersion
+  public exportVersion: FlashExportVersion
 
   /**
    * When exporting layers to Flash frames.
    */
-  static frameRate: number
+  public frameRate: number
 
   /**
    * Should the kerning information for text objects be ignored.
    */
-  static ignoreTextKerning: boolean
+  public ignoreTextKerning: boolean
 
   /**
    * How should the images in the exported Flash file be compressed.
    */
-  static imageFormat: FlashImageFormat
+  public imageFormat: FlashImageFormat
 
   /**
    * If true, include minimal XMP metadata in the exported file.
    */
-  static includeMetadata: boolean
+  public includeMetadata: boolean
 
   /**
    * What method to use.
    */
-  static jpegMethod: FlashJPEGMethod
+  public jpegMethod: FlashJPEGMethod
 
   /**
    * Level of compression.
    */
-  static jpegQuality: number
+  public jpegQuality: number
 
   /**
    * The order in which the layers will be exported to Flash frames.
    */
-  static layerOrder: LayerOrderType
+  public layerOrder: LayerOrderType
 
   /**
    * Should the Flash file be set to loop when run.
    */
-  static looping: boolean
+  public looping: boolean
 
   /**
    * What access should the SWF file have - local or network access.
    */
-  static playbackAccess: FlashPlaybackSecurity
+  public playbackAccess: FlashPlaybackSecurity
 
   /**
    * Choose whether to preserve artwork appearance or editability (default) during export.
    */
-  static preserveAppearance: boolean
+  public preserveAppearance: boolean
 
   /**
    * Prevent the exported file from being imported by other applications.
    */
-  static readOnly: boolean
+  public readOnly: boolean
 
   /**
    * If a file with the same name already exists, should it be replaced?
    */
-  static replacing: SaveOptions
+  public replacing: SaveOptions
 
   /**
    * Pixels per inch.
    */
-  static resolution: number
+  public resolution: number
 
   /**
    * All the artboards or range of the artboards will be exported.
    */
-  static saveMultipleArtboards: boolean
+  public saveMultipleArtboards: boolean
 }
 
 /**
@@ -6419,57 +6425,57 @@ declare class ExportOptionsAutoCAD {
   /**
    * Alter paths for appearance.
    */
-  static alterPathsForAppearance: boolean
+  public alterPathsForAppearance: boolean
 
   /**
    * Number of colors to export into the AutoCAD file.
    */
-  static colors: AutoCADColors
+  public colors: AutoCADColors
 
   /**
    * Whether to convert text to outlines.
    */
-  static convertTextToOutlines: boolean
+  public convertTextToOutlines: boolean
 
   /**
    * Which format to export the file as.
    */
-  static exportFileFormat: AutoCADExportFileFormat
+  public exportFileFormat: AutoCADExportFileFormat
 
   /**
    * Whether to preserve appearance or editability during export.
    */
-  static exportOption: AutoCADExportOption
+  public exportOption: AutoCADExportOption
 
   /**
    * Export selected art only.
    */
-  static exportSelectedArtOnly: boolean
+  public exportSelectedArtOnly: boolean
 
   /**
    * Raster format in which to export raster art.
    */
-  static rasterFormat: AutoCADRasterFormat
+  public rasterFormat: AutoCADRasterFormat
 
   /**
    * Whether to scale lineweights by the same amount as rest of the drawing.
    */
-  static scaleLineweights: boolean
+  public scaleLineweights: boolean
 
   /**
    * Units from which to map.
    */
-  static unit: AutoCADUnit
+  public unit: AutoCADUnit
 
   /**
    * Ratio by which to scale the output.
    */
-  static unitScaleRatio: number
+  public unitScaleRatio: number
 
   /**
    * Release of AutoCAD to export to.
    */
-  static version: AutoCADCompatibility
+  public version: AutoCADCompatibility
 }
 
 /**
@@ -6479,42 +6485,42 @@ declare class ExportOptionsTIFF {
   /**
    * Should the resulting image be antialiased.
    */
-  static antiAliasing: AntiAliasingMethod
+  public antiAliasing: AntiAliasingMethod
 
   /**
    * If SaveMultipleArtboards is true,this will be considered for multi-asset extraction which specifies artboard range.Empty string will extracts all the artboards.Default is empty string.
    */
-  static artboardRange: string
+  public artboardRange: string
 
   /**
    * Mac or PC byte order when exporting.
    */
-  static byteOrder: TIFFByteOrder
+  public byteOrder: TIFFByteOrder
 
   /**
    * Embed an ICC profile when exporting.
    */
-  static embedICCProfile: boolean
+  public embedICCProfile: boolean
 
   /**
    * The color space of the exported file.
    */
-  static imageColorSpace: ImageColorSpace
+  public imageColorSpace: ImageColorSpace
 
   /**
    * Compress TIFF file with LZW Compression when exporting.
    */
-  static lZWCompression: boolean
+  public lZWCompression: boolean
 
   /**
    * The resolution of the exported file.
    */
-  static resolution: number
+  public resolution: number
 
   /**
    * All the artboards or range of the artboards will be exported.
    */
-  static saveMultipleArtboards: boolean
+  public saveMultipleArtboards: boolean
 }
 
 /**
@@ -10700,7 +10706,7 @@ declare class Story {
 /**
  * Text frame item.
  */
-declare class TextFrame extends PageItem {
+declare class TextFrameItem extends PageItem {
   /**
    * The position of the anchor point (start of base line for point text)
    */
@@ -10779,7 +10785,7 @@ declare class TextFrame extends PageItem {
   /**
    * The linked text frame following this one.
    */
-  nextFrame: TextFrame
+  nextFrame: TextFrameItem
 
   /**
    * Is the optical alignment active?
@@ -10799,7 +10805,7 @@ declare class TextFrame extends PageItem {
   /**
    * The linked text frame preceding this one.
    */
-  previousFrame: TextFrame
+  previousFrame: TextFrameItem
 
   /**
    * The row count in the text frame (area text only)
@@ -10854,12 +10860,12 @@ declare class TextFrame extends PageItem {
   /**
    * Convert Area Type Text Object To Point Type Object.
    */
-  convertAreaObjectToPointObject(): TextFrame
+  convertAreaObjectToPointObject(): TextFrameItem
 
   /**
    * Convert Point Type Text Object To Area Type Object.
    */
-  convertPointObjectToAreaObject(): TextFrame
+  convertPointObjectToAreaObject(): TextFrameItem
 
   /**
    * Convert text item to path items.
