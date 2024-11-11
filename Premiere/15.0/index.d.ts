@@ -826,6 +826,11 @@ declare class SourceMonitor {
    *
    */
   openProjectItem(itemToOpen: ProjectItem): void
+
+  /**
+   *
+   */
+  getProjectItem(): ProjectItem
 }
 
 /**
