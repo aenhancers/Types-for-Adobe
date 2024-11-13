@@ -3778,7 +3778,7 @@ declare class Documents extends Array<Document> {
    * @param presetSettings Custom settings to apply to the preset.
    * @param showOptionsDialog If false, do not show Options dialog.
    */
-  static addDocument(
+  addDocument(
     startupPreset: string,
     presetSettings?: DocumentPreset,
     showOptionsDialog?: boolean,
@@ -7064,62 +7064,67 @@ declare class DocumentPreset {
   /**
    * Layout for artboards.
    */
-  static artboardLayout: DocumentArtboardLayout
+  artboardLayout: DocumentArtboardLayout
 
   /**
    * Number of rows (for rows layout) OR column(for column layouts)of artboards.Range is 1 to (docNumArtboards - 1) or 1 for single row or column layouts.
    */
-  static artboardRowsOrCols: number
+  artboardRowsOrCols: number
 
   /**
    * Spacing between artboards.
    */
-  static artboardSpacing: number
+  artboardSpacing: number
 
   /**
    * The color mode for the new document.
    */
-  static colorMode: DocumentColorSpace
+  colorMode: DocumentColorSpace
 
   /**
    * The height for the new document.
    */
-  static height: number
+  height: number
 
   /**
    * Number of artboards for new document.Range (1:100).
    */
-  static numArtboards: number
+  numArtboards: number
 
   /**
    * The preview mode for the new document.
    */
-  static previewMode: DocumentPreviewMode
+  previewMode: DocumentPreviewMode
 
   /**
    * The raster resolution for the new document.
    */
-  static rasterResolution: DocumentRasterResolution
+  rasterResolution: DocumentRasterResolution
 
   /**
    * The title for the new document.
    */
-  static title: string
+  title: string
 
   /**
    * The transparency grid for the new document.
    */
-  static transparencyGrid: DocumentTransparencyGrid
+  transparencyGrid: DocumentTransparencyGrid
+
+  /**
+   *  Read-only. The class name of the referenced object.
+   */
+  readonly typename: string
 
   /**
    * The units for the new document.
    */
-  static units: RulerUnits
+  units: RulerUnits
 
   /**
    * The width for the new document.
    */
-  static width: number
+  width: number
 }
 
 /**
