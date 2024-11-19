@@ -827,7 +827,7 @@ declare class Application {
    * @param use_mfr Set to `true` to enable Multi-Frame Rendering.
    * @param max_cpu_perc Value from 1-100 representing the maximum CPU percentage Multi-Frame Rendering should utilize. If `mfr_on` is set to `false`, pass in 100.
    */
-  setMultiFrameRenderingConfig(use_mfr: boolean, max_cpu_percent: number): void;
+  setMultiFrameRenderingConfig(use_mfr: boolean, max_cpu_percent: number): void
 
   /** Sets whether preferences are saved when the application is quit. */
   setSavePreferencesOnQuit(doSave: boolean): void
@@ -1490,13 +1490,13 @@ declare class Layer extends PropertyGroup {
   moveBefore(layer: Layer): void
 
   /** Duplicates the layer. */
-  duplicate(): Layer
+  duplicate<T = Layer>(this: T): T
 
   /** Copies the layer to the top (beginning) of another composition. */
   copyToComp(intoComp: CompItem): void
 
   /** Runs Scene Edit Detection on the layer that the method is called on and returns an array containing the times of any detected scenes */
-  doSceneEditDetection(applyOptions: SceneEditDetectionMode): number[];
+  doSceneEditDetection(applyOptions: SceneEditDetectionMode): number[]
 
   /** Reports whether this layer will be active at a specified time. */
   activeAtTime(time: number): boolean
@@ -2280,11 +2280,11 @@ declare class PropertyBase {
   moveTo(newIndex: number): void
 
   /** Duplicates this property object. */
-  duplicate(): _PropertyClasses
+  duplicate<T = _PropertyClasses>(this: T): T
 
   /** Gets a member property or group. Strictly, this should be PropertyGroup method. */
-  property(index: number): _PropertyClasses
-  property(name: string): _PropertyClasses
+  property<T extends _PropertyClasses = _PropertyClasses>(index: number): T
+  property<T extends _PropertyClasses = _PropertyClasses>(name: string): T
 }
 
 /** Properties are accessed by name through layers, using various kinds of expression syntax, as controlled by application preferences. */
@@ -2320,7 +2320,7 @@ declare class RenderQueue {
   readonly items: RQItemCollection
 
   /** Read or write the Notify property for the entire Render Queue */
-  queueNotify: boolean;
+  queueNotify: boolean
 
   /** Show or hides the Render Queue panel. */
   showWindow(doShow: boolean): void
@@ -2365,7 +2365,7 @@ declare class RenderQueueItem {
   readonly status: RQItemStatus
 
   /** Sets the Notify checkbox for each individual item in the Render Queue */
-  queueItemNotify: boolean;
+  queueItemNotify: boolean
 
   /** When true, this item is rendered when the queue is started. */
   render: boolean
