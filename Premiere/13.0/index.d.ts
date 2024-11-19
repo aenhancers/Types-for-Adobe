@@ -180,9 +180,9 @@ declare class Sequence {
 
   /**
    * Clones a sequence.
-   * @returns the clone Sequence.
+   * @returns a boolean indicating whether the cloning was successful.
    */
-  clone(): Sequence
+  clone(): boolean
 
   /**
    * Creates a new sequence from the source sequence's in and out points.
