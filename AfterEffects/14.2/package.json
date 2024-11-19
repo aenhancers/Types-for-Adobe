@@ -1,0 +1,6 @@
+{
+	"name": "types-for-adobe/AfterEffects/14.2",
+	"version": "1.0.0",
+	"main": "index.d.ts",
+	"types": "index.d.ts"
+}

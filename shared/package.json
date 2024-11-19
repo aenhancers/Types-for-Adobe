@@ -1,0 +1,6 @@
+{
+  "name": "types-for-adobe/shared",
+  "version": "1.0.0",
+  "main": "index.d.ts",
+  "types": "index.d.ts"
+}

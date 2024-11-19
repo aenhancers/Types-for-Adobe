@@ -1,0 +1,6 @@
+{
+	"name": "types-for-adobe/Audition/2017",
+	"version": "1.0.0",
+	"main": "index.d.ts",
+	"types": "index.d.ts"
+}
